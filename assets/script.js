@@ -31,7 +31,7 @@ const numQuestionsResultsEl = document.getElementById('num-questions-results');
 
 
 // Caminho fixo para o arquivo Excel dentro da pasta assets
-const EXCEL_FILE_PATH = './assets/Perguntas.xlsx';
+const EXCEL_FILE_PATH = 'assets/Perguntas.xlsx';
 const NUMBER_OF_QUESTIONS = 20; // Quantidade de questões
 const TOTAL_TIMER_SECONDS = 20 * 60; // 20 minutos em segundos
 
