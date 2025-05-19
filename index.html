@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado PL-900</title>
+    <!-- Caminho do CSS atualizado -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2>Simulado PL-900</h2>
+
+        <!-- Área de loading/erro inicial (mostrada enquanto busca o arquivo) -->
+        <div id="initial-status" class="status-area">
+             <p id="loading-message" style="display: none; color: gray;">Carregando questões do arquivo...</p>
+             <p id="error-message" style="display: none; color: red;"></p>
+        </div>
+
+        <!-- Área de Iniciar Simulado (mostrada após carregar o arquivo com sucesso) -->
+        <div id="start-area" class="status-area" style="display: none;">
+            <p>Questões carregadas com sucesso!</p>
+            <p>Prepare-se para o simulado de <span id="num-questions-text"></span> questões com <span id="timer-duration-text"></span> minutos de duração.</p>
+            <button id="startBtn">Iniciar Simulado</button>
+        </div>
+
+
+        <!-- Área do quiz (mostrada após clicar em Iniciar) -->
+        <div id="quiz-area" style="display: none;">
+            <!-- Área do Timer -->
+            <div id="timer-area">
+                 Tempo Restante: <span id="timer"></span>
+            </div>
+
+            <div id="question-area">
+                <div id="question-counter"></div>
+                <!-- Pergunta -->
+                <div id="question" class="question-text"></div>
+                <!-- Opções -->
+                <div id="options" class="options-container">
+                    <!-- Opções serão carregadas aqui pelo JavaScript -->
+                </div>
+
+                <p id="mandatory-message" class="mandatory-message" style="display: none;">Por favor, selecione uma opção para continuar.</p>
+
+                <div class="navigation-buttons">
+                    <button id="prevBtn">Anterior</button>
+                    <button id="nextBtn">Próxima</button>
+                    <button id="finishBtn" style="display: none;">Finalizar Simulado</button>
+                </div>
+
+                <!-- Botão Interromper Simulado -->
+                 <div class="interrupt-button-container">
+                    <button id="interruptBtn">Interromper Simulado</button>
+                 </div>
+            </div>
+        </div>
+
+        <!-- Área de Resultados (mostrada ao finalizar o simulado) -->
+        <div id="results" class="results-container" style="display: none;">
+            <h3>Resultado do Simulado</h3>
+            <p id="score"></p>
+            <div id="review">
+                <!-- Revisão das perguntas e respostas aqui -->
+                <!-- Cada .question-review terá a pergunta, resposta do usuário, resposta correta E o comentário -->
+                 <div class="question-review-template" style="display: none;">
+                     <p><strong>Questão X:</strong> Texto da pergunta</p>
+                     <p>Sua Resposta: <span class="user-answer"></span></p>
+                     <p>Resposta Correta: <span class="correct-answer"></span></p>
+                     <p class="feedback"></p>
+                     <p class="explanation"></p> <!-- Elemento para o comentário -->
+                 </div>
+            </div>
+            <button id="restartBtn">Refazer Simulado (Novas <span id="num-questions-results"></span> Questões)</button>
+        </div>
+    </div>
+
+    <!-- Inclua a biblioteca SheetJS (xlsx) via CDN - Permanece externa -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- Caminho do JavaScript atualizado -->
+    <script src="assets/script.js"></script>
+</body>
+</html>

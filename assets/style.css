@@ -1,0 +1,272 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.quiz-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #0078d4;
+    margin-bottom: 20px;
+}
+
+/* Estilos para as áreas de status/start */
+.status-area {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.status-area p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Estilos para o botão Iniciar Simulado */
+#startBtn {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#startBtn:hover {
+    background-color: #005a9e;
+}
+
+
+/* Estilos para a área do timer */
+#timer-area {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #0078d4;
+    font-weight: bold;
+}
+
+#timer {
+    color: #d9534f;
+}
+
+#question-counter {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Estilos para a pergunta e opções (empilhados) */
+#question.question-text {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #333;
+}
+
+.options-container {
+    margin-top: 0;
+}
+
+.options-container label {
+    display: block;
+    background-color: #e9e9e9;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.options-container label:hover {
+    background-color: #dcdcdc;
+}
+
+.options-container input[type="radio"] {
+    margin-right: 10px;
+}
+
+.mandatory-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+.navigation-buttons {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.navigation-buttons button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#prevBtn, #nextBtn {
+    background-color: #0078d4;
+    color: white;
+}
+
+#prevBtn:disabled, #nextBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#finishBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#finishBtn:hover {
+     background-color: #218838;
+}
+
+/* Estilos para o botão Interromper Simulado */
+.interrupt-button-container {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+#interruptBtn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5pt; /* Ajustado para match outros botões */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#interruptBtn:hover {
+     background-color: #c82333;
+}
+
+
+#results {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.results-container h3 {
+    text-align: center;
+    color: #0078d4;
+    margin-bottom: 15px;
+}
+
+.results-container #score {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#review .question-review {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#review .question-review p {
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+/* Estilos para o texto do comentário */
+#review .question-review .explanation {
+    margin-top: 10px; /* Espaço acima do comentário */
+    padding-top: 10px;
+    border-top: 1px dashed #ccc; /* Linha tracejada acima do comentário */
+    font-style: italic; /* Comentário em itálico */
+    color: #333; /* Cor de texto mais escura */
+    font-size: 0.95em; /* Fonte um pouco menor */
+    line-height: 1.4;
+    white-space: pre-wrap; /* Mantém quebras de linha se houver no Excel/CSV */
+    word-wrap: break-word;
+}
+
+
+/* Reaplicar estilos de cor com mais especificidade para garantir que funcionem na revisão */
+#review .question-review .user-answer {
+    font-weight: bold;
+}
+#review .question-review .correct-answer {
+    font-weight: bold;
+}
+#review .question-review .incorrect-answer {
+     font-weight: bold;
+}
+
+#review .feedback {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.correct-feedback {
+    color: green;
+}
+
+.incorrect-feedback {
+    color: red;
+}
+
+/* Estilos para o botão Refazer Simulado */
+#results #restartBtn {
+    display: block;
+    width: 100%;
+    background-color: #ffc107;
+    color: #333;
+    margin-top: 20px;
+    padding: 12px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#results #restartBtn:hover {
+    background-color: #e0a800;
+}
